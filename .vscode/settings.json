@@ -1,0 +1,12 @@
+{
+    "liveServer.settings.multiRootWorkspaceName": "workspace",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "testdb",
+            "database": "./test.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
