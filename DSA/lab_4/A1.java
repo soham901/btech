@@ -1,14 +1,18 @@
+/*
+ * Write a program to insert a number at a given location in an array.
+ */
+
 import java.util.Scanner;
 
 public class A1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] arr = new int[n+1];
+        int[] arr = new int[n + 1];
 
         System.out.println();
 
-        for(int a=0; a<n; a++) {
+        for (int a = 0; a < n; a++) {
             arr[a] = sc.nextInt();
         }
 
@@ -29,8 +33,10 @@ public class A1 {
 
         System.out.println();
 
-        for(int a: arr) {
+        for (int a : arr) {
             System.out.println(a);
         }
+
+        sc.close();
     }
 }
