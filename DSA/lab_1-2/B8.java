@@ -9,6 +9,7 @@ public class B8 {
         for (int a = 2; a < n; a++) {
             if (n % a == 0) {
                 System.out.println("is'nt prime");
+                sc.close();
                 return;
             }
         }

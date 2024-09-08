@@ -12,6 +12,7 @@ public class C11 {
 
         if (n < 0) {
             System.out.println("Invalid Input");
+            sc.close();
             return;
         }
 

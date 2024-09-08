@@ -7,6 +7,7 @@ public class A4 {
 
         if (n < 0) {
             System.out.println("Invalid Input");
+            sc.close();
             return;
         }
 
