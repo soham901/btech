@@ -6,5 +6,6 @@ public class A1 {
         double rad = sc.nextDouble();
         double area = Math.PI * rad * rad;
         System.out.println(area);
+        sc.close();
     }
 }

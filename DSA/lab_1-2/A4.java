@@ -9,11 +9,12 @@ public class A4 {
             System.out.println("Invalid Input");
             return;
         }
-        
-        for(int a=1; a <= n; a++) {
+
+        for (int a = 1; a <= n; a++)
             fact *= a;
-        }
 
         System.out.println(fact);
+
+        sc.close();
     }
 }
