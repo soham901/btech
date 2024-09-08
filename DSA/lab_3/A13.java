@@ -1,19 +1,22 @@
+/*
+ *  Write a program to read and display n numbers using an array.
+ */
+
 import java.util.Scanner;
 
-public class C2 {
+public class A13 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        String[] arr = new String[n];
+        int[] arr = new int[n];
 
         for (int a = 0; a < n; a++)
-            arr[a] = sc.next();
+            arr[a] = sc.nextInt();
 
         System.out.println();
 
-        for (String a : arr) {
+        for (int a : arr)
             System.out.print(a + " ");
-        }
 
         sc.close();
     }

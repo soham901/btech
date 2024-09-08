@@ -1,20 +1,25 @@
-import java.util.Scanner;
+/*
+ * WAP to sort the N names in an alphabetical order.
+ */
 
-public class C2 {
+import java.util.*;
+
+public class C20 {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         String[] arr = new String[n];
 
-        for (int a = 0; a < n; a++)
+        for (int a = 0; a < n; a++) {
             arr[a] = sc.next();
-
-        System.out.println();
-
-        for (String a : arr) {
-            System.out.print(a + " ");
         }
 
         sc.close();
+
+        Arrays.sort(arr);
+        for (String a : arr) {
+            System.out.println(a);
+        }
     }
 }
