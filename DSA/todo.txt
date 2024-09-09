@@ -1,0 +1,4 @@
+verification pending: 4 -> c1, c2, c3
+verification pending: 5 -> b1
+6 -> b1, c1
+10 -> A1, C1, C2
