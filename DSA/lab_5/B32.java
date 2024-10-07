@@ -8,20 +8,42 @@
  */
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class B32 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of words: ");
         int n = sc.nextInt();
         String[] arr = new String[n];
+
+        System.out.println("Enter " + n + " words:");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.next();
         }
+
         int ran = (int) (Math.random() * n);
-        System.out.println(arr[ran]);
+        System.out.println("Word: " + arr[ran]);
         System.out.println("Enter an anagram: ");
         String anagram = sc.next();
-        System.out.println(arr[ran].equals(anagram) ? "Correct" : "Wrong");
+
+        if (isAnagram(arr[ran], anagram)) {
+            System.out.println("Correct");
+        } else {
+            System.out.println("Wrong");
+        }
+
         sc.close();
+    }
+
+    public static boolean isAnagram(String word1, String word2) {
+        if (word1.length() != word2.length()) {
+            return false;
+        }
+        char[] arr1 = word1.toCharArray();
+        char[] arr2 = word2.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        return Arrays.equals(arr1, arr2);
     }
 }
