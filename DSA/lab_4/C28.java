@@ -5,64 +5,55 @@
  */
 
 public class C28 {
-
-    static int[] arr = new int[999];
-    static int last = 0;
-
     public static void main(String[] args) {
-        insert(20);
-        insert(20);
-        insert(20);
-        insert(20);
-        insert(20);
+        int[] data = { 1, 2, 3, 4, 5 };
 
-        System.out.println("Sum: " + sum());
-        System.out.println("Min: " + min());
-        System.out.println("Max: " + max());
-        System.out.println("Avg: " + avg());
-        System.out.println("Count: " + count());
+        ArrayDatabase db = new ArrayDatabase(data);
+
+        System.out.println("Sum: " + db.sum());
+        System.out.println("Min: " + db.min());
+        System.out.println("Max: " + db.max());
+        System.out.println("Avg: " + db.avg());
+    }
+}
+
+class ArrayDatabase {
+
+    private int[] data;
+
+    public ArrayDatabase(int[] data) {
+        this.data = data;
     }
 
-    public static void insert(int value) {
-        arr[last] = value;
-        last++;
+    public int sum() {
+        int sum = 0;
+        for (int num : data)
+            sum += num;
+
+        return sum;
     }
 
-    public static int sum() {
-        int total = 0;
-        for (int i = 0; i <= last; i++) {
-            total += arr[i];
-        }
-        return total;
-    }
-
-    public static int min() {
-        int min = arr[0];
-        for (int i = 0; i <= last; i++) {
-            int a = arr[i];
-            if (min > a)
-                min = a;
+    public int min() {
+        int min = data[0];
+        for (int num : data) {
+            if (num < min)
+                min = num;
 
         }
         return min;
     }
 
-    public static int max() {
-        int max = arr[0];
-        for (int i = 0; i <= last; i++) {
-            int a = arr[i];
-            if (max < a)
-                max = a;
-
+    public int max() {
+        int max = data[0];
+        for (int num : data) {
+            if (num > max)
+                max = num;
         }
         return max;
     }
 
-    public static double avg() {
-        return (double) sum() / arr.length;
+    public double avg() {
+        return sum() / (double) data.length;
     }
 
-    public static int count() {
-        return last;
-    }
 }
