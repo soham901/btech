@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  jupyter:
+    image: jupyter/base-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - "${PWD}:/home/jovyan/work"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes  # Optional: Enable JupyterLab interface
