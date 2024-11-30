@@ -1,25 +1,42 @@
 # B-Tech Stuff of Soham901
 
-Welcome to my B-Tech repository! This is where I will be pushing all my work, including lab solutions, projects, and notes that I create during my B-Tech journey.
+Welcome to my B-Tech repository! This is where I'll be pushing all my work, including lab solutions, projects, and notes that I create during my B-Tech journey. I'm currently pursuing a D2D (Diploma to Degree) program, which means I'm entering directly into the second year of the B-Tech program after completing my diploma.
 
-## Contents
+## About Me
 
-- [Solutions](#solutions)
-- [Projects](#projects)
-- [Notes](#notes)
+I'm a full-stack developer with a passion for building innovative solutions. Here's a bit about what I do:
 
-## Solutions
+- 💻 Full-stack development (Web, Mobile, DevOps, AI eng.)
+- 🚀 Freelancing (high quality tailored websites and apps, ...)
+- 🛠️ Building side projects (code-bhajia, health-care infra, ...)
+- 💡 Exploring SaaS ideas (an ed-tech product, ...)
 
-Here you will find solutions to various problems and assignments that I encounter during my studies.
+## Repository Structure
 
-## Projects
+This repository is organized by semester branches:
 
-This section will contain all the projects that I work on, including both academic and personal projects.
+### Sem-3 Branch (`sem-3`)
 
-## Notes
+Contains lab solutions, notes, stuff subject wise:
 
-I will be sharing my notes and study materials here to help with revision and to provide a resource for others.
+- DBMS (Database Management Systems)
+- DSA (Data Structures and Algorithms)
+- OOPJ (Object-Oriented Programming with Java)
+- WT-1 (Web Technologies I)
 
----
+### Sem-4 Branch (`sem-4`)
 
-Happy coding!
+Contains lab solutions, notes, stuff subject wise:
+
+- PP (Python Programming)
+- SE (Software Engineering)
+- MADF (Mobile App Development with Flutter)
+- PC-1 (Professional Communication I)
+- WT-2 (Web Technologies II)
+
+## How to Navigate
+
+1. Switch to a specific semester branch to view its contents:
+   ```bash
+   git checkout sem-x
+   ```
