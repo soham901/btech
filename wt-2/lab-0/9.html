@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        padding: 24px;
+      }
+      .card {
+        background-color: black;
+        color: white;
+        padding: 0.4rem;
+        border-radius: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2 class="name"></h2>
+        <p class="category"></p>
+        <p class="price"></p>
+        <p class="stock"></p>
+      </div>
+    </div>
+
+    <script>
+      const data = [
+        {
+          name: "Smartphone X200",
+          category: "Electronics",
+          price: 599.99,
+          stock: 120,
+        },
+        {
+          name: "Gaming Laptop Z15",
+          category: "Electronics",
+          price: 1299.99,
+          stock: 45,
+        },
+        {
+          name: "Air Purifier A300",
+          category: "Home Appliances",
+          price: 199.99,
+          stock: 60,
+        },
+        {
+          name: "4K Smart TV Pro",
+          category: "Electronics",
+          price: 899.99,
+          stock: 30,
+        },
+        {
+          name: "Wireless Earbuds E50",
+          category: "Accessories",
+          price: 49.99,
+          stock: 150,
+        },
+        {
+          name: "Yoga Mat Deluxe",
+          category: "Fitness",
+          price: 29.99,
+          stock: 200,
+        },
+        {
+          name: "Blender B200",
+          category: "Kitchen Appliances",
+          price: 79.99,
+          stock: 80,
+        },
+        {
+          name: "Electric Kettle K10",
+          category: "Kitchen Appliances",
+          price: 39.99,
+          stock: 100,
+        },
+        {
+          name: "Running Shoes S5",
+          category: "Fitness",
+          price: 69.99,
+          stock: 120,
+        },
+        {
+          name: "Water Bottle WB300",
+          category: "Fitness",
+          price: 19.99,
+          stock: 250,
+        },
+        {
+          name: "Gaming Mouse GM500",
+          category: "Accessories",
+          price: 59.99,
+          stock: 70,
+        },
+        {
+          name: "Digital Camera C20",
+          category: "Electronics",
+          price: 499.99,
+          stock: 25,
+        },
+        {
+          name: "LED Desk Lamp L15",
+          category: "Home Appliances",
+          price: 24.99,
+          stock: 200,
+        },
+        {
+          name: "Portable Charger P10",
+          category: "Accessories",
+          price: 39.99,
+          stock: 180,
+        },
+        {
+          name: "Treadmill T500",
+          category: "Fitness",
+          price: 999.99,
+          stock: 20,
+        },
+        {
+          name: "Refrigerator R800",
+          category: "Home Appliances",
+          price: 1399.99,
+          stock: 15,
+        },
+        {
+          name: "Electric Scooter E100",
+          category: "Electronics",
+          price: 599.99,
+          stock: 40,
+        },
+        {
+          name: "Noise-Cancelling Headphones H20",
+          category: "Accessories",
+          price: 199.99,
+          stock: 50,
+        },
+        {
+          name: "Smartwatch S30",
+          category: "Electronics",
+          price: 149.99,
+          stock: 90,
+        },
+        {
+          name: "Vacuum Cleaner VC100",
+          category: "Home Appliances",
+          price: 129.99,
+          stock: 70,
+        },
+      ];
+
+      function render() {
+        const container = document.getElementsByClassName("container")[0];
+        const card = document.getElementsByClassName("card")[0];
+
+        data.forEach((item) => {
+          const clonedCard = card.cloneNode(true);
+
+          clonedCard.querySelector(".name").textContent = item.name;
+          clonedCard.querySelector(
+            ".category"
+          ).textContent = `Category: ${item.category}`;
+          clonedCard.querySelector(".price").textContent = `\$ ${item.price}`;
+          clonedCard.querySelector(
+            ".stock"
+          ).textContent = `in-stock: ${item.stock}`;
+
+          container.appendChild(clonedCard);
+        });
+
+        card.remove();
+      }
+
+      render();
+    </script>
+  </body>
+</html>

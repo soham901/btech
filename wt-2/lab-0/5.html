@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+
+      ol {
+        margin-top: 2rem;
+      }
+
+      input {
+        padding: 0.2rem 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="get">
+      <input type="search" name="q" id="q" />
+      <input type="submit" value="Search" autocomplete="off" />
+    </form>
+
+    <ol start="0" id="list"></ol>
+
+    <script>
+      const words = "Ball Pen Xyz Hello Word Car"
+        .split(" ")
+        .map((w) => w.toLowerCase());
+
+      let index = -1;
+
+      const form = document.getElementsByTagName("form")[0];
+
+      const q = document.getElementById("q");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        index = words.findIndex((w) => w.includes(q.value.toLowerCase()));
+
+        document.write(index === -1 ? "Not Found" : `Found at ${index}`);
+      });
+
+      function render() {
+        words.forEach((w) => {
+          const li = document.createElement("li");
+          li.innerHTML = w;
+          document.getElementById("list").appendChild(li);
+        });
+      }
+
+      render();
+    </script>
+  </body>
+</html>

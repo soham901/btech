@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+      .card {
+        background-color: black;
+        color: white;
+        padding: 0.4rem;
+        border-radius: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2 class="name"></h2>
+        <p class="dept"></p>
+        <p class="rno"></p>
+      </div>
+    </div>
+
+    <script>
+      const students = [
+        {
+          name: "Aarav Patel",
+          dept: "CSE",
+          rollNumber: "CSE202401",
+          yearOfEnrollment: 2024,
+        },
+        {
+          name: "Bella Sharma",
+          dept: "IT",
+          rollNumber: "IT202402",
+          yearOfEnrollment: 2024,
+        },
+        {
+          name: "Chirag Mehta",
+          dept: "Civil",
+          rollNumber: "CIV202403",
+          yearOfEnrollment: 2024,
+        },
+        {
+          name: "Diya Desai",
+          dept: "ECE",
+          rollNumber: "ECE202404",
+          yearOfEnrollment: 2024,
+        },
+        {
+          name: "Eshan Gupta",
+          dept: "Mechanical",
+          rollNumber: "MECH202405",
+          yearOfEnrollment: 2024,
+        },
+        {
+          name: "Farah Khan",
+          dept: "CSE",
+          rollNumber: "CSE202406",
+          yearOfEnrollment: 2023,
+        },
+        {
+          name: "Gaurav Joshi",
+          dept: "IT",
+          rollNumber: "IT202407",
+          yearOfEnrollment: 2023,
+        },
+        {
+          name: "Hina Shah",
+          dept: "Civil",
+          rollNumber: "CIV202408",
+          yearOfEnrollment: 2023,
+        },
+        {
+          name: "Ishaan Verma",
+          dept: "ECE",
+          rollNumber: "ECE202409",
+          yearOfEnrollment: 2023,
+        },
+        {
+          name: "Jiya Patel",
+          dept: "Mechanical",
+          rollNumber: "MECH202410",
+          yearOfEnrollment: 2023,
+        },
+        {
+          name: "Karan Singh",
+          dept: "CSE",
+          rollNumber: "CSE202411",
+          yearOfEnrollment: 2022,
+        },
+        {
+          name: "Lila Kapoor",
+          dept: "IT",
+          rollNumber: "IT202412",
+          yearOfEnrollment: 2022,
+        },
+        {
+          name: "Manav Shah",
+          dept: "Civil",
+          rollNumber: "CIV202413",
+          yearOfEnrollment: 2022,
+        },
+        {
+          name: "Nisha Agarwal",
+          dept: "ECE",
+          rollNumber: "ECE202414",
+          yearOfEnrollment: 2022,
+        },
+        {
+          name: "Omkar Reddy",
+          dept: "Mechanical",
+          rollNumber: "MECH202415",
+          yearOfEnrollment: 2022,
+        },
+        {
+          name: "Pooja Bansal",
+          dept: "CSE",
+          rollNumber: "CSE202416",
+          yearOfEnrollment: 2021,
+        },
+        {
+          name: "Rahul Yadav",
+          dept: "IT",
+          rollNumber: "IT202417",
+          yearOfEnrollment: 2021,
+        },
+        {
+          name: "Sana Khan",
+          dept: "Civil",
+          rollNumber: "CIV202418",
+          yearOfEnrollment: 2021,
+        },
+        {
+          name: "Tanay Iyer",
+          dept: "ECE",
+          rollNumber: "ECE202419",
+          yearOfEnrollment: 2021,
+        },
+        {
+          name: "Vaishnavi Pillai",
+          dept: "Mechanical",
+          rollNumber: "MECH202420",
+          yearOfEnrollment: 2021,
+        },
+      ];
+
+      function render() {
+        const container = document.getElementsByClassName("container")[0];
+        const card = document.getElementsByClassName("card")[0];
+
+        students.forEach((fac) => {
+          const clonedCard = card.cloneNode(true);
+
+          clonedCard.querySelector(".name").textContent = fac.name;
+          clonedCard.querySelector(
+            ".dept"
+          ).textContent = `Department: ${fac.dept}`;
+          clonedCard.querySelector(
+            ".rno"
+          ).textContent = `Eno. : ${fac.rollNumber}`;
+
+          container.appendChild(clonedCard);
+        });
+
+        card.remove();
+      }
+
+      render();
+    </script>
+  </body>
+</html>

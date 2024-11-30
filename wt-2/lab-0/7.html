@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [1, 2, 3];
+
+      const l = (msg) => console.log(msg, arr);
+
+      l("Init");
+
+      arr.push(4);
+
+      l("After push");
+
+      arr.pop();
+
+      l("After pop");
+
+      arr.shift();
+
+      l("After shift");
+
+      arr.unshift(5);
+
+      l("After unshift");
+
+      arr.splice(1, 2);
+
+      l("After splice");
+
+      arr.push(30);
+      arr.push(20);
+      arr.sort((a, b) => b - a);
+
+      l("After sort");
+    </script>
+  </body>
+</html>

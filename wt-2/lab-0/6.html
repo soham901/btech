@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+      .card {
+        background-color: black;
+        color: white;
+        padding: 0.4rem;
+        border-radius: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2 class="name"></h2>
+        <p class="dept">Department: {dept}</p>
+        <p class="desi">Designation: {desi}</p>
+        <p class="exp">Experince: {exp}</p>
+      </div>
+    </div>
+
+    <script>
+      const faculties = [
+        {
+          name: "Alice Johnson",
+          dept: "CSE",
+          desi: "Professor",
+          workingSince: 2015,
+        },
+        {
+          name: "Bob Smith",
+          dept: "IT",
+          desi: "Assistant Professor",
+          workingSince: 2018,
+        },
+        {
+          name: "Carol Williams",
+          dept: "Civil",
+          desi: "Lecturer",
+          workingSince: 2020,
+        },
+        {
+          name: "David Brown",
+          dept: "ECE",
+          desi: "Professor",
+          workingSince: 2010,
+        },
+        {
+          name: "Eve Taylor",
+          dept: "Mechanical",
+          desi: "Assistant Professor",
+          workingSince: 2017,
+        },
+        {
+          name: "Frank Wilson",
+          dept: "CSE",
+          desi: "Lecturer",
+          workingSince: 2021,
+        },
+        {
+          name: "Grace Martinez",
+          dept: "IT",
+          desi: "Professor",
+          workingSince: 2012,
+        },
+        {
+          name: "Henry Anderson",
+          dept: "Civil",
+          desi: "Assistant Professor",
+          workingSince: 2023,
+        },
+        {
+          name: "Ivy Thomas",
+          dept: "ECE",
+          desi: "Professor",
+          workingSince: 2008,
+        },
+        {
+          name: "Jack Moore",
+          dept: "Mechanical",
+          desi: "Lecturer",
+          workingSince: 2019,
+        },
+        {
+          name: "Karen Hall",
+          dept: "CSE",
+          desi: "Assistant Professor",
+          workingSince: 2022,
+        },
+        { name: "Liam Lee", dept: "IT", desi: "Professor", workingSince: 2011 },
+        {
+          name: "Mia Harris",
+          dept: "Civil",
+          desi: "Lecturer",
+          workingSince: 2020,
+        },
+        {
+          name: "Noah Clark",
+          dept: "ECE",
+          desi: "Assistant Professor",
+          workingSince: 2016,
+        },
+        {
+          name: "Olivia Lewis",
+          dept: "Mechanical",
+          desi: "Professor",
+          workingSince: 2009,
+        },
+        {
+          name: "Peter Young",
+          dept: "CSE",
+          desi: "Lecturer",
+          workingSince: 2023,
+        },
+        {
+          name: "Quinn King",
+          dept: "IT",
+          desi: "Assistant Professor",
+          workingSince: 2021,
+        },
+        {
+          name: "Rachel Scott",
+          dept: "Civil",
+          desi: "Professor",
+          workingSince: 2007,
+        },
+        {
+          name: "Sam Green",
+          dept: "ECE",
+          desi: "Lecturer",
+          workingSince: 2018,
+        },
+        {
+          name: "Tina Adams",
+          dept: "Mechanical",
+          desi: "Assistant Professor",
+          workingSince: 2019,
+        },
+      ];
+
+      function render() {
+        const container = document.getElementsByClassName("container")[0];
+        const card = document.getElementsByClassName("card")[0];
+
+        faculties.forEach((fac) => {
+          const clonedCard = card.cloneNode(true);
+
+          clonedCard.querySelector(".name").textContent = fac.name;
+          clonedCard.querySelector(
+            ".dept"
+          ).textContent = `Department: ${fac.dept}`;
+          clonedCard.querySelector(
+            ".desi"
+          ).textContent = `Designation: ${fac.desi}`;
+          clonedCard.querySelector(".exp").textContent = `Experience: ${
+            new Date().getFullYear() - fac.workingSince
+          } years`;
+
+          container.appendChild(clonedCard);
+        });
+
+        card.remove();
+      }
+
+      render();
+    </script>
+  </body>
+</html>

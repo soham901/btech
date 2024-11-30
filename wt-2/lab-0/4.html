@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const readArr = () => {
+        const ip = prompt("Enter an array : ");
+        return ip.split(",").map((val) => parseInt(val));
+      };
+
+      const swap = (arr, i, j) => {
+        const temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      };
+
+      const partition = (arr, low, high) => {
+        let pivot = arr[high],
+          i = low - 1;
+
+        for (let j = low; j < high; j++) {
+          if (arr[j] < pivot) {
+            i++;
+            swap(arr, i, j);
+          }
+        }
+
+        swap(arr, i + 1, high);
+
+        return i + 1;
+      };
+
+      const quickSort = (arr, low, high) => {
+        // if (low > high) {
+        //   const pi = partition(arr, low, high);
+        //   quickSort(arr, low, pi - 1);
+        //   quickSort(arr, pi + 1, high);
+        // }
+        let flag = true,
+          i,
+          j,
+          key;
+
+        if (low < high) {
+          i = low;
+          j = high + 1;
+          key = arr[low];
+
+          while (flag) {
+            i++;
+
+            while (arr[i] < key) {
+              i++;
+            }
+
+            j--;
+
+            while (arr[j] > key) {
+              j--;
+            }
+            if (i < j) {
+              swap(arr, i, j);
+            } else {
+              flag = false;
+            }
+          }
+          swap(arr, low, j);
+
+          quickSort(arr, low, j - 1);
+          quickSort(arr, j + 1, high);
+        }
+
+        return arr;
+      };
+
+      const arr =
+        //   [50, 40, 30, 20, 10]
+        [10, 80, 30, 90, 40];
+      // [50, 10, 30, 20, 40]
+      // readArr();
+
+      document.write("Before: ", arr);
+      document.write("<br><br>After: ", quickSort(arr, 0, arr.length - 1));
+    </script>
+  </body>
+</html>

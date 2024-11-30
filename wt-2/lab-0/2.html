@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const readArr = () => {
+        const ip = prompt("Enter an array : ");
+        return ip.split(",").map((val) => parseInt(val));
+      };
+
+      const bubbleSort = (arr) => {
+        for (let pass = 0; pass < arr.length - 1; pass++) {
+          for (let i = 0; i < arr.length - 1 - pass; i++) {
+            if (arr[i] > arr[i + 1]) {
+              const temp = arr[i + 1];
+              arr[i + 1] = arr[i];
+              arr[i] = temp;
+            }
+          }
+        }
+        return arr;
+      };
+
+      const arr =
+        //   [50, 40, 30, 20, 10]
+        [10, 30, 50, 40, 20];
+      // [50, 10, 30, 20, 40]
+      // readArr();
+
+      document.write("Before: ", arr);
+      document.write("<br><br>After: ", bubbleSort(arr));
+    </script>
+  </body>
+</html>
