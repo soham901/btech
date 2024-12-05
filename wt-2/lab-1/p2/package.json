@@ -1,0 +1,14 @@
+{
+  "name": "p2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "do-the-shit": "npm i express@1",
+    "fix-the-shit": "npm update",
+    "flush-the-shit": "npm uninstall express"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
