@@ -1,7 +1,8 @@
 import express, { Router } from "express";
 
 import { config } from "dotenv";
-import { websiteRouter } from "./apps";
+import { archiveRouter, websiteRouter } from "./apps";
+import "./apps/website/tasks";
 
 config();
 
@@ -18,8 +19,8 @@ app.get("/", (req, res) => {
 
 // routing
 app.use("/api", api);
-
 api.use("/websites", websiteRouter);
+app.use("/", archiveRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

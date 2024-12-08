@@ -2,12 +2,12 @@ import { Router } from "express";
 
 export const router = Router();
 
-type Site = {
+export type Site = {
   name: string;
   url: string;
 };
 
-const sites: Site[] = [
+export const sites: Site[] = [
   {
     name: "portfolio v1",
     url: "https://soham901.github.io",
