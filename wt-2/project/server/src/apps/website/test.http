@@ -1,0 +1,16 @@
+### add a new website
+POST http://localhost:8000/api/websites HTTP/1.1
+content-type: application/json
+
+{
+    "name": "portfolio",
+    "url": "https://soham901.github.io"
+}
+
+
+### get all websites
+GET http://localhost:8000/api/websites HTTP/1.1
+
+
+### get a specific website
+GET http://localhost:8000/api/websites/sample HTTP/1.1
