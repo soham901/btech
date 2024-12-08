@@ -1,6 +1,6 @@
-import express from 'express';
+import express from "express";
 
-import { config } from 'dotenv';
+import { config } from "dotenv";
 
 config();
 
@@ -9,8 +9,8 @@ const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.json({ message: 'it Works' });
+app.get("/", (req, res) => {
+  res.json({ message: "it Works" });
 });
 
 app.listen(PORT, () => {
