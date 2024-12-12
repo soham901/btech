@@ -1,0 +1,1 @@
+{"name":"Aman","rollNo":1,"enrollmentNo":1234,"mobNo":1234567890,"SPI":9.5}
