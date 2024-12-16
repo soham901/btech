@@ -5,8 +5,7 @@ import 'dart:io';
 void main() {
   stdout.write("Enter a : ");
   int a = int.parse(stdin.readLineSync()!);
-
-  print(check(a));
+  print(check(a) == 1 ? "$a is prime" : "$a is not prime");
 }
 
 int check(int n) {
