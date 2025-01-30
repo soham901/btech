@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 class MenuItem {
   final String title;
   final IconData icon;
+  final String route;
 
-  const MenuItem({required this.title, required this.icon});
+  const MenuItem({required this.title, required this.icon, required this.route});
 }
 
 List<MenuItem> list = const [
-  MenuItem(title: "Add User", icon: Icons.add),
-  MenuItem(title: "User List", icon: Icons.list),
-  MenuItem(title: "Favourite", icon: Icons.favorite),
-  MenuItem(title: "About Us", icon: Icons.info),
+  MenuItem(title: "Add User", icon: Icons.add, route: "/users/add"),
+  MenuItem(title: "User List", icon: Icons.list, route: "/users/list"),
+  MenuItem(title: "Favourite", icon: Icons.favorite, route: "/users/favourite"),
+  MenuItem(title: "About Us", icon: Icons.info, route: "/about"),
 ];
 
 class DashboardScreen extends StatefulWidget {
@@ -31,11 +32,15 @@ class DashboardScreenState extends State<DashboardScreen> {
         backgroundColor: Colors.deepPurple,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/notifications");
+            },
             icon: const Icon(Icons.notifications),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/settings");
+            },
             icon: const Icon(Icons.settings),
           ),
         ],
@@ -51,27 +56,32 @@ class DashboardScreenState extends State<DashboardScreen> {
           ),
           itemCount: list.length,
           itemBuilder: (context, index) {
-            return Card(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6),
-                side: const BorderSide(color: Colors.black54, width: 2),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    list[index].icon,
-                    size: 42,
-                    color: Colors.black87,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    list[index].title,
-                    style: const TextStyle(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+            return InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, list[index].route);
+              },
+              child: Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6),
+                  side: const BorderSide(color: Colors.black54, width: 2),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      list[index].icon,
+                      size: 42,
+                      color: Colors.black87,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      list[index].title,
+                      style: const TextStyle(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             );
           },

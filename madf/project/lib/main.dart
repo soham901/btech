@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/dashboard.dart';
 
+import 'screens/users/add.dart';
+import 'screens/users/list.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -18,6 +21,12 @@ class MyApp extends StatelessWidget {
       ),
       home: const DashboardScreen(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/dashboard': (context) => const DashboardScreen(),
+        '/users/add': (context) => const AddUserScreen(),
+        '/users/list': (context) => const UsersListScreen(),
+        // '/users/edit': (context, {arguments}) => const EditUserScreen(arguments: arguments),
+      },
     );
   }
 }
