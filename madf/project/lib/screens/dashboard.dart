@@ -27,7 +27,7 @@ class DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("MATRIMONY", style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 3)),
+        title: const Text("MATRIMONY", style: TextStyle(fontWeight: FontWeight.w800, letterSpacing: 3)),
         foregroundColor: Colors.white,
         backgroundColor: Colors.deepPurple,
         actions: [
@@ -43,6 +43,7 @@ class DashboardScreenState extends State<DashboardScreen> {
             },
             icon: const Icon(Icons.settings),
           ),
+          SizedBox(width: 8),
         ],
       ),
       body: Padding(

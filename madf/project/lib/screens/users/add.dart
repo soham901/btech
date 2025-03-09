@@ -44,11 +44,21 @@ class _AddUserScreenState extends State<AddUserScreen> {
                 hintText: "Enter your phone",
               ),
             ),
-            ElevatedButton(onPressed: () {
+            Row(
+              children: [
+                ElevatedButton(onPressed: () {
               User user = User(email: emailController.text, name: nameController.text, phone: phoneController.text);
               UserManager.addUser(user);
               Navigator.pop(context);
-            }, child: const Text("Add User"))
+            }, child: const Text("Add User")),
+            const SizedBox(height: 8),
+            ElevatedButton(onPressed: () {
+              User user = User(email: "${DateTime.now().millisecondsSinceEpoch}@mock.com", name: "Mock User", phone: "1234567890");
+              UserManager.addUser(user);
+              Navigator.pop(context);
+            }, child: const Text("Add Mock User")),
+              ],
+            ),
           ],
         )
       ),

@@ -10,7 +10,7 @@ class UsersListScreen extends StatefulWidget {
 
 class _UsersListScreenState extends State<UsersListScreen> {
   TextEditingController searchQuery = TextEditingController();
-  
+
   List<User> users = [];
 
   @override
@@ -39,109 +39,126 @@ class _UsersListScreenState extends State<UsersListScreen> {
                 labelText: "Search",
                 hintText: "Search users by anything",
                 prefixIcon: const Icon(Icons.search),
-                suffixIcon: IconButton(onPressed: () {
-                  searchQuery.clear();
-                  setState(() {
-                    users = UserManager.getUsers();
-                  });
-                }, icon: const Icon(Icons.clear)),
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      searchQuery.clear();
+                      setState(() {
+                        users = UserManager.getUsers();
+                      });
+                    },
+                    icon: const Icon(Icons.clear)),
               ),
               controller: searchQuery,
             ),
           ),
           Expanded(
             child: Center(
-                child: users.isEmpty ? Text("No users found") : ListView.builder(
-              itemBuilder: (context, index) {
-                User user = users[index];
-                return ListTile(
-                  title: Text(user.name),
-                  subtitle: Text(user.email),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          UserManager.deleteUserById(index);
-                          setState(() {});
-                        },
-                        icon: const Icon(Icons.delete),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          TextEditingController nameController =
-                              TextEditingController(text: user.name);
-                          TextEditingController emailController =
-                              TextEditingController(text: user.email);
-                          TextEditingController phoneController =
-                              TextEditingController(text: user.phone);
+                child: users.isEmpty
+                    ? Text("No users found")
+                    : ListView.builder(
+                        itemBuilder: (context, index) {
+                          User user = users[index];
+                          return ListTile(
+                            title: Text(user.name),
+                            subtitle: Text(user.email),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    TextEditingController nameController =
+                                        TextEditingController(text: user.name);
+                                    TextEditingController emailController =
+                                        TextEditingController(text: user.email);
+                                    TextEditingController phoneController =
+                                        TextEditingController(text: user.phone);
 
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: const Text("Edit User"),
-                                  content: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      TextField(
-                                        controller: nameController,
-                                        decoration: const InputDecoration(
-                                          labelText: "Name",
-                                          hintText: "Enter your name",
-                                        ),
-                                      ),
-                                      TextField(
-                                        controller: emailController,
-                                        decoration: const InputDecoration(
-                                          labelText: "Email",
-                                          hintText: "Enter your email",
-                                        ),
-                                      ),
-                                      TextField(
-                                        controller: phoneController,
-                                        decoration: const InputDecoration(
-                                          labelText: "Phone",
-                                          hintText: "Enter your phone",
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  actions: [
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text("Close")),
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          UserManager.updateUserById(
-                                              index,
-                                              User(
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: const Text("Edit User"),
+                                          content: SingleChildScrollView(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                TextField(
+                                                  controller: nameController,
+                                                  decoration:
+                                                      const InputDecoration(
+                                                    labelText: "Name",
+                                                    hintText: "Enter your name",
+                                                  ),
+                                                ),
+                                                TextField(
+                                                  controller: emailController,
+                                                  decoration:
+                                                      const InputDecoration(
+                                                    labelText: "Email",
+                                                    hintText:
+                                                        "Enter your email",
+                                                  ),
+                                                ),
+                                                TextField(
+                                                  controller: phoneController,
+                                                  decoration:
+                                                      const InputDecoration(
+                                                    labelText: "Phone",
+                                                    hintText:
+                                                        "Enter your phone",
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          actions: [
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: const Text("Close"),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                User updatedUser = User(
                                                   name: nameController.text,
                                                   email: emailController.text,
-                                                  phone: phoneController.text));
-                                          // if (isDeleteed) {
-                                          setState(() {});
-                                          Navigator.pop(context);
-                                          // }
-                                        },
-                                        child: const Text("Edit"))
-                                  ],
-                                );
-                              });
-                          // Navigator.pushNamed(context, "/users/edit", arguments: {
-                          //   'id': index,
-                          // });
+                                                  phone: phoneController.text,
+                                                );
+
+                                                int originalIndex = UserManager
+                                                    .users
+                                                    .indexWhere((u) =>
+                                                        u.email == user.email);
+
+                                                if (originalIndex != -1) {
+                                                  UserManager.updateUserById(
+                                                      originalIndex,
+                                                      updatedUser);
+                                                }
+
+                                                setState(() {
+                                                  users =
+                                                      UserManager.getUsers();
+                                                });
+
+                                                Navigator.pop(context);
+                                              },
+                                              child: const Text("Edit"),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  icon: const Icon(Icons.edit),
+                                ),
+                              ],
+                            ),
+                          );
                         },
-                        icon: const Icon(Icons.edit),
-                      ),
-                    ],
-                  ),
-                );
-              },
-              itemCount: users.length,
-            )),
+                        itemCount: users.length,
+                      )),
           ),
         ],
       ),

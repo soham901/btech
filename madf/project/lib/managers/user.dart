@@ -1,9 +1,13 @@
 class User {
-  late final String name;
-  late final String email;
-  late final String phone;
+  final String name;
+  final String email;
+  final String phone;
 
-  User({this.name = "", this.email = "", this.phone = ""});
+  const User({
+    required this.name,
+    required this.email,
+    required this.phone,
+  });
 }
 
 class UserManager {
@@ -32,12 +36,17 @@ class UserManager {
   }
 
   static List<User> searchUsers(String query) {
-    return users.where((user) => user.name.contains(
-      RegExp(query, caseSensitive: false),
-    ) || user.email.contains(
-      RegExp(query, caseSensitive: false),
-    ) || user.phone.contains(
-      RegExp(query, caseSensitive: false),
-    )).toList();
+    return users
+        .where((user) =>
+            user.name.contains(
+              RegExp(query, caseSensitive: false),
+            ) ||
+            user.email.contains(
+              RegExp(query, caseSensitive: false),
+            ) ||
+            user.phone.contains(
+              RegExp(query, caseSensitive: false),
+            ))
+        .toList();
   }
 }
